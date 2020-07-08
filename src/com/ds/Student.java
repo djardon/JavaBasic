@@ -42,11 +42,11 @@ public class Student {
     }
 
     public String imcDescription() {
-        float studentIMC = imc();
-        return calculateImcDescription(studentIMC);
+        ImcType imcType = calculateImcType();
+        return calculateImcDescription(imcType);
     }
 
-    public ImcType imcType() {
+    public ImcType calculateImcType() {
         float imc = imc();
         ImcType typeIMC;
 
@@ -84,32 +84,15 @@ public class Student {
         return height * height;
     }
 
-    private String calculateImcDescription(float imc) {
-        // menor 16.0 -> "Infrapeso: Delgadez Severa"
-        // mayor igual 16.0 y menor de 17 -> "Infrapeso: Delgadez moderada"
-        // mayor igual 17 y menor 19 -> "Infrapeso: Delgadez aceptable"
-        // mayor igual 19 y menor 25 -> "Peso Normal"
-        // mayor igual 25 y menor 30 -> "Sobrepeso"
-        // mayor igual 30 y menor igual 40 -> "Obeso: Tipo I"
-        // mayor 40 -> "Obeso: Tipo II"
-        String description = "";
-
-        if(imc < 16) {
-            description = "Infrapeso: Delgadez Severa";
-        } else if(imc < 17) {
-            description = "Infrapeso: Delgadez moderada";
-        } else if(imc < 19) {
-            description = "Infrapeso: Delgadez aceptable";
-        } else if(imc < 25) {
-            description = "Peso Normal";
-        } else if(imc < 30) {
-            description = "Sobrepeso";
-        } else if(imc < 40) {
-            description = "Obeso: Tipo I";
-        } else {
-            description = "Obeso: Tipo II";
-        }
-
-        return description;
+    private String calculateImcDescription(ImcType imcType) {
+        return switch (imcType) {
+            case DELGADEZ_SEVERA -> "Infrapeso: Delgadez Severa";
+            case DELGADEZ_MODERADA -> "Infrapeso: Delgadez moderada";
+            case DELGADEZ -> "Infrapeso: Delgadez aceptable";
+            case NORMAL -> "Peso Normal";
+            case SOBREPESO -> "Sobrepeso";
+            case SOBREPESO_MODERADO -> "Obeso: Tipo I";
+            case SOBREPESO_SEVERO -> "Obeso: Tipo II";
+        };
     }
 }
