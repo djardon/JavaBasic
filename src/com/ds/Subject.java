@@ -22,11 +22,10 @@ public class Subject {
 
 
     //********* Public functions *********/
-    public void printSubjectType() {
-        switch (type) {
-            case iOS -> System.out.println("Subject type: " + type);
-            case ANDROID -> System.out.println("Subject type: " + type);
-            default -> System.out.println("Subject type: " + type);
+    public static void printAllSubjectTypes() {
+        // Print all 'SubjectType' enum values
+        for (SubjectType type : SubjectType.values()) {
+            System.out.println("Subject type: " + type);
         }
     }
 }
