@@ -1,5 +1,10 @@
 package com.ds;
 
+import com.ds.lists.ListArrays;
+import com.ds.lists.Lists;
+import com.ds.loops.ForLoop;
+import com.ds.loops.WhileLoop;
+
 public class Main {
 
     //********* Constructor *********/
@@ -50,12 +55,26 @@ public class Main {
         printStudentData(null);
 
         System.out.println("*********************** Subject ***********************");
+        // Call to 'printSubjectType' from 'subject' print (String)
+        Subject.printAllSubjectTypes();
         // Call function 'printSubjectData' with parameter value 'subjectIOS'
         printSubjectData(subjectIOS);
         // Call function 'printSubjectData' with parameter value 'subjectAndroid'
         printSubjectData(subjectAndroid);
         // Call function 'printSubjectData' with parameter value 'null'
         printSubjectData(null);
+
+        System.out.println("*********************** LOOPS ***********************");
+        // ForLoop loop = new ForLoop();
+        // loop.doLoop();
+        (new ForLoop()).doLoop();
+        (new WhileLoop()).doLoop();
+
+        System.out.println("*********************** LISTS ***********************");
+        (new Lists()).showListData();
+
+        System.out.println("*********************** ARRAY LISTS ***********************");
+        (new ListArrays()).showListData();
     }
 
 
@@ -93,8 +112,6 @@ public class Main {
         // Check if 'subject' is null
         if(subject != null) {
             // If 'subject' isn't null
-            // Call to 'printSubjectType' from 'subject' print (String)
-            subject.printSubjectType();
             // Get subject 'name' from 'subject' and print it (String)
             System.out.println("Subject name: " + subject.name);
             // Get subject 'year' from 'subject' and print it (int)
