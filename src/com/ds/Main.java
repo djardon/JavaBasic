@@ -24,17 +24,19 @@ public class Main {
         // Set 'height' property values for the 'student2' object
         student2.height = 2.77;
 
+
         // Create a new 'Subject' class instance
         // with name "iOS" and year "2020" values
-        Subject subjectIOS = new Subject("iOS", 2020);
+        Subject subjectIOS = new Subject("iOS", 2020, Subject.SubjectType.iOS);
         // Set 'studentName' property value for the 'subjectIOS' object
         subjectIOS.studentName = student.name;
 
         // Create a new 'Subject' class instance
         // with name "Android" and year "2020" values
-        Subject subjectAndroid = new Subject("Android", 2020);
+        Subject subjectAndroid = new Subject("Android", 2020, Subject.SubjectType.ANDROID);
         // Set 'studentName' property value for the 'subjectAndroid' object
         subjectAndroid.studentName = student2.name;
+
 
         System.out.println("*********************** Student ***********************");
         // Get student 'school' name and print it (String)
@@ -91,6 +93,8 @@ public class Main {
         // Check if 'subject' is null
         if(subject != null) {
             // If 'subject' isn't null
+            // Call to 'printSubjectType' from 'subject' print (String)
+            subject.printSubjectType();
             // Get subject 'name' from 'subject' and print it (String)
             System.out.println("Subject name: " + subject.name);
             // Get subject 'year' from 'subject' and print it (int)
