@@ -1,16 +1,16 @@
 package com.ds;
 
 public class Student {
-    //********* Vars *********/
+    //********* Properties *********/
     private static final String school = "Neoland";
 
-    // Default all vars accessibility are 'Public'
     String name;
     String email;
     int age;
     float weight;
     double height;
 
+    //********* Enums *********/
     enum ImcType {
         DELGADEZ_SEVERA,
         DELGADEZ_MODERADA,
@@ -30,9 +30,12 @@ public class Student {
         this.email = email;
     }
 
+
+    //********* Class functions *********/
     public static void printSchool() {
         System.out.println("School " + school);
     }
+
 
     //********* Public functions *********/
     public float imc() {
@@ -79,12 +82,14 @@ public class Student {
         return !email.isBlank();
     }
 
+
     //********* Private functions *********/
     private double heightSquare() {
         return height * height;
     }
 
     private String calculateImcDescription(ImcType imcType) {
+        // Return imc type description according to 'imcType' enum values
         return switch (imcType) {
             case DELGADEZ_SEVERA -> "Infrapeso: Delgadez Severa";
             case DELGADEZ_MODERADA -> "Infrapeso: Delgadez moderada";
