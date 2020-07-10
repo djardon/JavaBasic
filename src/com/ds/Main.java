@@ -4,7 +4,6 @@ import com.ds.lists.ListArrays;
 import com.ds.lists.Lists;
 import com.ds.loops.ForLoop;
 import com.ds.loops.WhileLoop;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -12,6 +11,7 @@ public class Main {
 
     //********* Constructor *********/
     public static void main(String[] args) {
+        /*********** STUDENTS ************/
         // Create a new 'Student' class instance
         // with name "David" and email "david@email.com" values
         Student student = new Student("David", "david@email.com");
@@ -32,7 +32,7 @@ public class Main {
         // Set 'height' property values for the 'student2' object
         student2.height = 2.77;
 
-
+        /*********** SUBJECTS ************/
         // Create a new 'Subject' class instance
         // with name "iOS" and year "2020" values
         Subject subjectIOS = new Subject("iOS", 2020, Subject.SubjectType.iOS);
@@ -53,7 +53,7 @@ public class Main {
         // Set 'studentsName' property value for the 'subjectAndroid' object
         subjectAndroid.setStudents(new String[]{"Alicia", "Manuel", "Marc", "Javier", "Luis", "Marta"});
 
-
+        /*********** PRINTS ************/
         System.out.println("*********************** Student ***********************");
         // Get student 'school' name and print it (String)
         // System.out.println("School " + Student.school);
@@ -75,18 +75,21 @@ public class Main {
         // Call function 'printSubjectData' with parameter value 'null'
         printSubjectData(null);
 
+        /*********** LOOPS ************/
         System.out.println("*********************** LOOPS ***********************");
         // ForLoop loop = new ForLoop();
         // loop.doLoop();
-        (new ForLoop()).doLoop();
-        (new WhileLoop()).doLoop();
+        //(new ForLoop()).doLoop();
+        //(new WhileLoop()).doLoop();
 
+        /*********** LISTS ************/
         System.out.println("*********************** LISTS ***********************");
-        (new Lists()).showListData();
+        //(new Lists()).showListData();
 
         System.out.println("*********************** ARRAY LISTS ***********************");
-        (new ListArrays()).showListData();
+        //(new ListArrays()).showListData();
 
+        /*********** CLASS & LISTS ************/
         System.out.println("*********************** SUBJECTS STUDENTS ***********************");
         printUniqueSubjectsStudents(subjectIOS, subjectAndroid);
         printSubjectsOfStudents("David", subjectIOS, subjectAndroid);
@@ -146,92 +149,104 @@ public class Main {
     }
 
     private static void printUniqueSubjectsStudents(Subject subject1, Subject subject2) {
-        // Imprimir el nombre de todos los Alumnos de las asignaturas subject1 y subject2 sin repeticiones
-        // Salida -> "Alicia", "José", "Manuel", "Marc", "Roberto", "Javier", "Luis", "David", "Marta"
+        // Print all unique students names from 'subject1' and 'subject2'
+        // EXAMPLE_OUTPUT -> "Alicia", "José", "Manuel", "Marc", "Roberto", "Javier", "Luis", "David", "Marta"
 
-        // 1.- Crear nuevo listado de nombre de alumnos
-        ArrayList<String> studentsName = new ArrayList<>();
+        // 1.- Create new list for save unique students name
+        ArrayList<String> uniqueStudentsName = new ArrayList<>();
 
-        // 2.- Recorrer listado nombres alumnos de subject1
+        // 2.- For over 'subject1.studentsName' list one by one
         for (String name : subject1.studentsName) {
-            // 2.1.- Añadir cada nombre al nuevo listado
-            studentsName.add(name);
+            // 2.1.- Add each 'subject1' student 'name' into 'uniqueStudentsName' list
+            uniqueStudentsName.add(name);
         }
 
-        // 3.- Recorrer listado nombres alumnos de subject2
+        // 3.- For over 'subject2.studentsName' list one by one
         for (int index = 0; index < subject2.studentsName.length; index++) {
+            // Get student name from 'subject2.studentsName' for position 'index'
             String name = subject2.studentsName[index];
-            // 3.1.- Comprobar si el nombre ya existe en el nuevo listado 'studentsName'
-            if(!studentsName.contains(name)) {
-                // 3.1.1.- Si no existe, añadir el nombre al nuevo listado 'studentsName
-                studentsName.add(name);
+            // 3.1.- Check if 'name' exists in 'uniqueStudentsName' list
+            if(!uniqueStudentsName.contains(name)) {
+                // 3.1.1.- If not exists, Add 'subject2' student 'name' into 'uniqueStudentsName' list
+                uniqueStudentsName.add(name);
             }
 
-            /*boolean exists = false;
-            for (String studentName: studentsName) {
+            /* The previous code:
+            if(!uniqueStudentsName.contains(name)) {
+                // 3.1.1.- If not exists, Add 'subject2' student 'name' into 'uniqueStudentsName' list
+                uniqueStudentsName.add(name);
+            }
+
+            Do the same that the follow code:
+            boolean exists = false;
+            for (String studentName: uniqueStudentsName) {
                 if(name.equalsIgnoreCase(studentName)) {
                     exists = true;
                     break;
                 }
             }
             if(!exists) {
-                studentsName.add(name);
+                uniqueStudentsName.add(name);
             }*/
         }
 
-        // Sort 'studentsName' list order Ascending a..z
-        Collections.sort(studentsName);
+        // Sort 'uniqueStudentsName' list, order Ascending a..z
+        Collections.sort(uniqueStudentsName);
 
-        // 4.- Escribir todos los nombres del nuevo listado de nombres de alumnos 'studentsName'
-        for (String name : studentsName) {
+        // 4.- Print each 'name' in 'uniqueStudentsName'
+        for (String name : uniqueStudentsName) {
             System.out.println(name);
         }
 
-        /* Print list 'studentsName' reversed
-        Option 1: Collections.reverse(studentsName);
+        /* Print each name in 'uniqueStudentsName' reversed, order Descending z..a
+        Option 1:
+        Collections.reverse(uniqueStudentsName);
 
         Option 2:
-        for (int index = studentsName.size() - 1; index >= 0; index--) {
-            String name = studentsName.get(index);
+        // For over all 'uniqueStudentsName',
+        // start in last index 'uniqueStudentsName.size() - 1'
+        for (int index = uniqueStudentsName.size() - 1; index >= 0; index--) {
+            String name = uniqueStudentsName.get(index);
             System.out.println(name);
         }
         */
     }
 
     private static void printSubjectsOfStudents(String name, Subject subject1, Subject subject2) {
-        // Example INPUT -> name = "David"
-        // OUTPUT -> "Student David subjects: iOS, Android"
+        // EXAMPLE_OUTPUT -> "Student 'David' subjects: 'iOS', 'Android'"
 
-        // 1.- Crear un listado donde guardar nombres de asignatura del estudiante
+        // 1.- Create new list for save subjects of student
         ArrayList<String> subjects = new ArrayList<>();
 
-        // 2.- Recorrer el listado de nombres de estudiantes 'studentsName' de 'subject1'
+        // 2.- For over each 'studentName' in 'subject1.studentsName'
         for (String studentName: subject1.studentsName) {
-            // 2.1.- Comprobar si existe el nombre del estudiante 'name'
+            // 2.1.- Check if this 'studentName' is equals to parameter 'name'
             if(name.compareToIgnoreCase(studentName) == 0) {
-                // 2.1.1.- Si existe, almacenas el nombre de la asignatura en el listado de asignaturas
+                // 2.1.1.- If it's equals, add 'subject1.name' into 'subjects' list
                 subjects.add(subject1.name);
-                // 2.1.2.- Paramos de recorrer el listado
+                // 2.1.2.- For exit, because the student is in this subject
                 break;
             }
         }
 
-        // 3.- Recorrer el listado de nombres de estudiantes 'studentsName' de 'subject2'
+        // 3.- For over each 'studentName' in 'subject2.studentsName'
         for (String studentName: subject2.studentsName) {
-            // 3.1.- Comprobar si existe el nombre del estudiante 'name'
+            // 3.1.- Check if this 'studentName' is equals to parameter 'name'
             if (name.compareToIgnoreCase(studentName) == 0) {
-                // 3.1.1.- Si existe, almacenas el nombre de la asignatura en el listado de asignaturas
+                // 3.1.1.- If it's equals, add 'subject2.name' into 'subjects' list
                 subjects.add(subject2.name);
-                // 3.1.2.- Paramos de recorrer el listado
+                // 3.1.2.- For exit, because the student is in this subject
                 break;
             }
         }
 
-        // 4.- Recorrer el listado de asignaturas
         System.out.println();
+        // Print parameter 'name'
         System.out.print("Student " + name + " subjects: ");
+
+        // 4.- For over each subject in 'subjects' list
         for (String subject: subjects) {
-            // 4.1.- Escribir cada nombre de asignatura
+            // 4.1.- Print each 'subject' name
             System.out.print(subject + " ");
         }
         System.out.println();
