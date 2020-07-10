@@ -1,17 +1,21 @@
 package com.ds;
 
 public class Subject {
+    //********* Properties *********/
     String name;
     SubjectType type;
     int year;
     String[] studentsName;
+    String[] teachersName;
 
+    //********* Enums *********/
     public enum SubjectType {
         iOS,
         ANDROID,
         FULLSTACK,
         DATA_SCIENCE
     }
+
 
     //********* Constructor *********/
     public Subject(String name, int year, SubjectType type) {
@@ -23,8 +27,9 @@ public class Subject {
 
     //********* Public functions *********/
     public static void printAllSubjectTypes() {
-        // Print all 'SubjectType' enum values
+        // 'SubjectType.values()' return all possibles values of the Enum
         for (SubjectType type : SubjectType.values()) {
+            // Print each subject type 'type' in 'SubjectType.values()' list
             System.out.println("Subject type: " + type);
         }
     }
@@ -34,8 +39,9 @@ public class Subject {
     }
 
     public void printAllStudentsName() {
-        // Print all students name
         for (String name : studentsName) {
+            // Print each student 'name' in 'studentsName' list
+            // Word 'this' it's the current instance of a class 'Subject'
             System.out.println("Subject " + this.name + " student name: " + name);
         }
     }
