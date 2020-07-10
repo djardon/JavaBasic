@@ -8,12 +8,12 @@ public class ForLoop {
         System.out.println("LOOPS FOR");
         System.out.println("Print all ages between 0 and 18");
         for (int age = 0; age < 18; age++) {
-            //System.out.println(age);
+            System.out.println(age);
         }
 
         System.out.println("Print all pair numbers between 2 and 100");
         for (int pair = 2; pair < 100; pair = pair + 2) {
-            //System.out.println(pair);
+            System.out.println(pair);
         }
 
         System.out.println("Print all pair numbers between 2 and 20");
@@ -23,7 +23,7 @@ public class ForLoop {
                 // Exit loop
                 break;
             }
-            //System.out.println(pair);
+            System.out.println(pair);
         }
 
         System.out.println("Print all pair numbers between 2 and 100 exclude 20");
@@ -32,12 +32,12 @@ public class ForLoop {
                 // Jump to next iteration
                 continue;
             }
-            // System.out.println(pair);
+            System.out.println(pair);
         }
 
         System.out.println("Print all SubjectTypes");
         for (Subject.SubjectType type : Subject.SubjectType.values()) {
-            //System.out.println(type);
+            System.out.println(type);
         }
     }
 }

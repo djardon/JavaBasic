@@ -9,7 +9,7 @@ public class WhileLoop {
         // Print all ages between 0 and 18
         int age = 0;
         while (age < 18) {
-            //System.out.println(age);
+            System.out.println(age);
             age++;
         }
 
@@ -17,7 +17,7 @@ public class WhileLoop {
         // Print all pair numbers between 2 and 100
         int pair = 2;
         while (pair < 100) {
-            //System.out.println(pair);
+            System.out.println(pair);
             pair = pair + 2;
         }
 
@@ -25,7 +25,7 @@ public class WhileLoop {
         // Print all numbers between 0 and 77
         int number = 0;
         do {
-            //System.out.println(number);
+            System.out.println(number);
             number++;
         } while (number < 77);
     }
