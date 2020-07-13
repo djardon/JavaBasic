@@ -33,7 +33,7 @@ public class School {
             // If subject is null this 'schoolSubject' is subject with more student
             // or if subject isn't null, if subject 'studentsName' length is less than
             // this 'schoolSubject.studentsName' length, this 'schoolSubject' is subject with more students
-            if(subject == null || subject.studentsName.length < schoolSubject.studentsName.length) {
+            if(subject == null || subject.students.size() < schoolSubject.students.size()) {
                 subject = schoolSubject;
             }
         }
@@ -50,7 +50,7 @@ public class School {
             // If subject is null this 'schoolSubject' is subject with more teachers
             // or if subject isn't null, if subject 'teachersName' length is less than
             // this 'schoolSubject.teachersName' length, this 'schoolSubject' is subject with more teachers
-            if(subject == null || subject.teachersName.length < schoolSubject.teachersName.length) {
+            if(subject == null || subject.teachers.size() < schoolSubject.teachers.size()) {
                 subject = schoolSubject;
             }
         }
@@ -66,7 +66,7 @@ public class School {
         for (Subject schoolSubject : subjects) {
             // if this 'schoolSubject.studentsName' length is greater than 'minNumStudents'
             // add to 'subjectsStudents' list
-            if(schoolSubject.studentsName.length > minNumStudents) {
+            if(schoolSubject.students.size() > minNumStudents) {
                 subjectsStudents.add(schoolSubject);
             }
         }
@@ -83,7 +83,7 @@ public class School {
         for (Subject schoolSubject : subjects) {
             // if this 'schoolSubject.teachersName' length is greater than 'minNumTeachers'
             // add to 'subjectsTeachers' list
-            if(schoolSubject.teachersName.length > minNumTeachers) {
+            if(schoolSubject.teachers.size() > minNumTeachers) {
                 subjectsTeachers.add(schoolSubject);
             }
         }
@@ -96,7 +96,7 @@ public class School {
         ArrayList<Subject> studentSubjects = new ArrayList<>();
 
         for (Subject subject : subjects) {
-            if(isNameInList(student.name, subject.studentsName)) {
+            if(isNameInList(student.name, subject.studentsNames())) {
                 studentSubjects.add(subject);
                 break;
             }
@@ -110,7 +110,7 @@ public class School {
         ArrayList<Subject> teachersSubjects = new ArrayList<>();
 
         for (Subject subject : subjects) {
-            if(isNameInList(teacher.name, subject.teachersName)) {
+            if(isNameInList(teacher.name, subject.teachersNames())) {
                 teachersSubjects.add(subject);
             }
         }
@@ -146,16 +146,17 @@ public class School {
     }
 
     /** 2.- Devolver todos los 'students' de un 'teacher' */
-    public ArrayList<String> studentsOfTeacher(Teacher teacher) {
-        ArrayList<String> teacherStudents = new ArrayList<>();
+    public ArrayList<Student> studentsOfTeacher(Teacher teacher) {
+        ArrayList<Student> teacherStudents = new ArrayList<>();
 
         for (Subject subject : subjects) {
-            if(isNameInList(teacher.name, subject.teachersName)) {
+            if(isNameInList(teacher.name, subject.teachersNames())) {
                 /* for (String studentName : subject.studentsName) {
                     teacherStudents.add(studentName);
                 } */
                 // 'Arrays.asList' cast 'String[]' -> 'ArrayList<String>'
-                teacherStudents.addAll(Arrays.asList(subject.studentsName));
+                // Arrays.asList(subject.studentsName)
+                teacherStudents.addAll(subject.students);
             }
         }
 

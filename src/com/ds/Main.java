@@ -1,9 +1,5 @@
 package com.ds;
 
-import com.ds.lists.ListArrays;
-import com.ds.lists.Lists;
-import com.ds.loops.ForLoop;
-import com.ds.loops.WhileLoop;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -44,14 +40,42 @@ public class Main {
         studentsName[2] = "Marc";
         studentsName[3] = "Roberto";
         studentsName[4] = "Luis";
-        studentsName[5] = "David";*/
-        subjectIOS.setStudents(new String[]{"Alicia", "José", "Marc", "Roberto", "Luis", "David"});
+        studentsName[5] = "David";
+
+        Option 2
+        new String[]{"Alicia", "José", "Marc", "Roberto", "Luis", "David"}
+        */
+
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Alicia", "alicia@email.com"));
+        students.add(new Student("José", "jose@email.com"));
+        students.add(new Student("Marc", "marc@email.com"));
+        students.add(new Student("Roberto", "roberto@email.com"));
+        students.add(new Student("Luis", "luis@email.com"));
+        students.add(new Student("David", "david@email.com"));
+        subjectIOS.setStudents(students);
+
+        ArrayList<Teacher> teachers = new ArrayList<>();
+        teachers.add(new Teacher("David", 35, Teacher.Type.HEAD_TEACHER, Teacher.Gender.MALE));
+        teachers.add(new Teacher("Sara", 37, Teacher.Type.HEAD_TEACHER, Teacher.Gender.FEMALE));
+        teachers.add(new Teacher("Carlos", 33, Teacher.Type.CO_TEACHER, Teacher.Gender.MALE));
+        subjectIOS.setTeachers(teachers);
 
         // Create a new 'Subject' class instance
         // with name "Android" and year "2020" values
         Subject subjectAndroid = new Subject("Android", 2020, Subject.SubjectType.ANDROID);
         // Set 'studentsName' property value for the 'subjectAndroid' object
-        subjectAndroid.setStudents(new String[]{"Alicia", "Manuel", "Marc", "Javier", "Luis", "Marta"});
+        // new String[]{"Alicia", "Manuel", "Marc", "Javier", "Luis", "Marta"}
+        subjectAndroid.students.add(new Student("Alicia", "alicia@email.com"));
+        subjectAndroid.students.add(new Student("Manuel", "manuel@email.com"));
+        subjectAndroid.students.add(new Student("Marc", "marc@email.com"));
+        subjectAndroid.students.add(new Student("Javier", "javier@email.com"));
+        subjectAndroid.students.add(new Student("Luis", "luis@email.com"));
+        subjectAndroid.students.add(new Student("Marta", "marta@email.com"));
+
+        subjectAndroid.teachers.add(new Teacher("David", 35, Teacher.Type.HEAD_TEACHER, Teacher.Gender.MALE));
+        subjectAndroid.teachers.add(new Teacher("Carlos", 33, Teacher.Type.CO_TEACHER, Teacher.Gender.MALE));
+
 
         /*********** PRINTS ************/
         System.out.println("*********************** Student ***********************");
@@ -155,20 +179,20 @@ public class Main {
         // 1.- Create new list for save unique students name
         ArrayList<String> uniqueStudentsName = new ArrayList<>();
 
-        // 2.- For over 'subject1.studentsName' list one by one
-        for (String name : subject1.studentsName) {
+        // 2.- For over 'subject1.students' list one by one
+        for (Student student : subject1.students) {
             // 2.1.- Add each 'subject1' student 'name' into 'uniqueStudentsName' list
-            uniqueStudentsName.add(name);
+            uniqueStudentsName.add(student.name);
         }
 
         // 3.- For over 'subject2.studentsName' list one by one
-        for (int index = 0; index < subject2.studentsName.length; index++) {
+        for (int index = 0; index < subject2.students.size(); index++) {
             // Get student name from 'subject2.studentsName' for position 'index'
-            String name = subject2.studentsName[index];
+            Student student = subject2.students.get(index);
             // 3.1.- Check if 'name' exists in 'uniqueStudentsName' list
-            if(!uniqueStudentsName.contains(name)) {
+            if(!uniqueStudentsName.contains(student.name)) {
                 // 3.1.1.- If not exists, Add 'subject2' student 'name' into 'uniqueStudentsName' list
-                uniqueStudentsName.add(name);
+                uniqueStudentsName.add(student.name);
             }
 
             /* The previous code:
@@ -218,10 +242,10 @@ public class Main {
         // 1.- Create new list for save subjects of student
         ArrayList<String> subjects = new ArrayList<>();
 
-        // 2.- For over each 'studentName' in 'subject1.studentsName'
-        for (String studentName: subject1.studentsName) {
-            // 2.1.- Check if this 'studentName' is equals to parameter 'name'
-            if(name.compareToIgnoreCase(studentName) == 0) {
+        // 2.- For over each 'students' in 'subject1.students'
+        for (Student student: subject1.students) {
+            // 2.1.- Check if this 'student.name' is equals to parameter 'name'
+            if(name.compareToIgnoreCase(student.name) == 0) {
                 // 2.1.1.- If it's equals, add 'subject1.name' into 'subjects' list
                 subjects.add(subject1.name);
                 // 2.1.2.- For exit, because the student is in this subject
@@ -229,10 +253,10 @@ public class Main {
             }
         }
 
-        // 3.- For over each 'studentName' in 'subject2.studentsName'
-        for (String studentName: subject2.studentsName) {
-            // 3.1.- Check if this 'studentName' is equals to parameter 'name'
-            if (name.compareToIgnoreCase(studentName) == 0) {
+        // 3.- For over each 'students' in 'subject2.students'
+        for (Student student: subject2.students) {
+            // 3.1.- Check if this 'student.name' is equals to parameter 'name'
+            if (name.compareToIgnoreCase(student.name) == 0) {
                 // 3.1.1.- If it's equals, add 'subject2.name' into 'subjects' list
                 subjects.add(subject2.name);
                 // 3.1.2.- For exit, because the student is in this subject

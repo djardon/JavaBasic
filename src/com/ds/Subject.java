@@ -1,15 +1,17 @@
 package com.ds;
 
+import java.util.ArrayList;
+
 public class Subject {
     //********* Properties *********/
     String name;
     SubjectType type;
     int year;
 
-    /** Change to ArrayList<Student>  */
-    String[] studentsName;
-    /** Change to ArrayList<Teacher>  */
-    String[] teachersName;
+    /** 1.- Change to ArrayList<Student>  */
+    ArrayList<Student> students = new ArrayList<Student>();
+    /** 2.- Change to ArrayList<Teacher>  */
+    ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 
     //********* Enums *********/
     public enum SubjectType {
@@ -37,15 +39,48 @@ public class Subject {
         }
     }
 
-    public void setStudents(String[] names) {
-        studentsName = names;
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
     }
 
+    public void setTeachers(ArrayList<Teacher> teachers) {
+        this.teachers = teachers;
+    }
+
+    public String[] teachersNames() {
+        String[] names = new String[teachers.size()];
+
+        for (int index = 0; index < teachers.size(); index++) {
+            names[index] = teachers.get(index).name;
+        }
+
+        return names;
+    }
+
+    public String[] studentsNames() {
+        String[] names = new String[students.size()];
+
+        for (int index = 0; index < students.size(); index++) {
+            names[index] = students.get(index).name;
+        }
+
+        return names;
+    }
+
+
     public void printAllStudentsName() {
-        for (String name : studentsName) {
-            // Print each student 'name' in 'studentsName' list
+        for (Student student : students) {
+            // Print each student 'name' in 'students' list
             // Word 'this' it's the current instance of a class 'Subject'
-            System.out.println("Subject " + this.name + " student name: " + name);
+            System.out.println("Subject " + this.name + " student name: " + student.name);
+        }
+    }
+
+    public void printAllTeachersName() {
+        for (Teacher teacher : teachers) {
+            // Print each teacher 'name' in 'teachers' list
+            // Word 'this' it's the current instance of a class 'Subject'
+            System.out.println("Subject " + this.name + " teacher name: " + teacher.name);
         }
     }
 }
