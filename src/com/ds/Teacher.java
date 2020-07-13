@@ -8,7 +8,7 @@ public class Teacher {
     Gender gender;
     float salary;
     /** 1.- La variable 'type' tiene que ser privada*/
-    Type type;
+    private Type type;
 
     //********* Enums *********/
     enum Gender {
@@ -30,16 +30,22 @@ public class Teacher {
         this.gender = gender;
 
         /** 4.- Utilizar la nueva función 'setType' para inicializar el valor 'type'*/
-        this.type = type;
-        updateSalaryByType(this.type);
+        setType(type);
     }
 
     //********* Getters & Setters *********/
     /**  2.- Crear el get para la variable 'type' */
+    public Type getType() {
+        return type;
+    }
 
     /**  3.- Crear el set para la variable 'type' */
-    /**  5.- Añadir en la función 'setType', la lógica para que cuando seteo
-     * un nuevo valor del 'type' se actualice el 'salary' */
+    public void setType(Type type) {
+        this.type = type;
+        /**  5.- Añadir en la función 'setType', la lógica para que cuando seteo
+         * un nuevo valor del 'type' se actualice el 'salary' */
+        updateSalaryByType(this.type);
+    }
 
 
     //********* Private functions *********/
