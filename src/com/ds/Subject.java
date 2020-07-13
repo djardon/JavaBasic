@@ -5,7 +5,10 @@ public class Subject {
     String name;
     SubjectType type;
     int year;
+
+    /** Change to ArrayList<Student>  */
     String[] studentsName;
+    /** Change to ArrayList<Teacher>  */
     String[] teachersName;
 
     //********* Enums *********/
