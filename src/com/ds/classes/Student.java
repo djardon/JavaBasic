@@ -2,8 +2,6 @@ package com.ds;
 
 public class Student {
     //********* Properties *********/
-    private static final String school = "Neoland";
-
     String name;
     String email;
     int age;
@@ -28,12 +26,6 @@ public class Student {
     public Student(String name, String email) {
         this.name = name;
         this.email = email;
-    }
-
-
-    //********* Class functions *********/
-    public static void printSchool() {
-        System.out.println("School " + school);
     }
 
 
