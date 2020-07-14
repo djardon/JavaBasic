@@ -1,23 +1,23 @@
-package com.ds;
+package com.ds.classes;
 
 public class Teacher {
     //********* Properties *********/
-    String name;
-    String email;
-    int age;
-    Gender gender;
-    float salary;
+    public String name;
+    public String email;
+    public int age;
+    public Gender gender;
+    public float salary;
     /** 1.- La variable 'type' tiene que ser privada*/
     private Type type;
 
     //********* Enums *********/
-    enum Gender {
+    public enum Gender {
         MALE,
         FEMALE,
         OTHER
     }
 
-    enum Type {
+    public enum Type {
         HEAD_TEACHER,
         CO_TEACHER
     }

@@ -1,5 +1,9 @@
 package com.ds;
 
+import com.ds.classes.Student;
+import com.ds.classes.Subject;
+import com.ds.classes.Teacher;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -79,9 +83,6 @@ public class Main {
 
         /*********** PRINTS ************/
         System.out.println("*********************** Student ***********************");
-        // Get student 'school' name and print it (String)
-        // System.out.println("School " + Student.school);
-        Student.printSchool();
         // Call function 'printStudentData' with parameter value 'student'
         printStudentData(student);
         // Call function 'printStudentData' with parameter value 'student2'
@@ -98,20 +99,6 @@ public class Main {
         printSubjectData(subjectAndroid);
         // Call function 'printSubjectData' with parameter value 'null'
         printSubjectData(null);
-
-        /*********** LOOPS ************/
-        System.out.println("*********************** LOOPS ***********************");
-        // ForLoop loop = new ForLoop();
-        // loop.doLoop();
-        //(new ForLoop()).doLoop();
-        //(new WhileLoop()).doLoop();
-
-        /*********** LISTS ************/
-        System.out.println("*********************** LISTS ***********************");
-        //(new Lists()).showListData();
-
-        System.out.println("*********************** ARRAY LISTS ***********************");
-        //(new ListArrays()).showListData();
 
         /*********** CLASS & LISTS ************/
         System.out.println("*********************** SUBJECTS STUDENTS ***********************");

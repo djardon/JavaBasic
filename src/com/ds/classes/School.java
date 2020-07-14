@@ -1,14 +1,13 @@
-package com.ds;
+package com.ds.classes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class School {
     //********* Properties *********/
-    String name;
-    ArrayList<Student> students = new ArrayList<>();
-    ArrayList<Subject> subjects = new ArrayList<>();
-    ArrayList<Teacher> teachers = new ArrayList<>();
+    public String name;
+    public ArrayList<Student> students = new ArrayList<>();
+    public ArrayList<Subject> subjects = new ArrayList<>();
+    public ArrayList<Teacher> teachers = new ArrayList<>();
 
 
     //********* Constructor *********/

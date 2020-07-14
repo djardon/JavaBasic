@@ -1,6 +1,6 @@
 package com.ds.loops;
 
-import com.ds.Subject;
+import com.ds.classes.Subject;
 
 public class ForLoop {
 

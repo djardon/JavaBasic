@@ -1,17 +1,17 @@
-package com.ds;
+package com.ds.classes;
 
 import java.util.ArrayList;
 
 public class Subject {
     //********* Properties *********/
-    String name;
-    SubjectType type;
-    int year;
+    public String name;
+    public SubjectType type;
+    public int year;
 
     /** 1.- Change to ArrayList<Student>  */
-    ArrayList<Student> students = new ArrayList<Student>();
+    public ArrayList<Student> students = new ArrayList<Student>();
     /** 2.- Change to ArrayList<Teacher>  */
-    ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+    public ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 
     //********* Enums *********/
     public enum SubjectType {

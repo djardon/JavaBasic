@@ -1,15 +1,15 @@
-package com.ds;
+package com.ds.classes;
 
 public class Student {
     //********* Properties *********/
-    String name;
-    String email;
-    int age;
-    float weight;
-    double height;
+    public String name;
+    public String email;
+    public int age;
+    public float weight;
+    public double height;
 
     //********* Enums *********/
-    enum ImcType {
+    public enum ImcType {
         DELGADEZ_SEVERA,
         DELGADEZ_MODERADA,
         DELGADEZ,
