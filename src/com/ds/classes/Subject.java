@@ -9,9 +9,9 @@ public class Subject {
     public int year;
 
     /** 1.- Change to ArrayList<Student>  */
-    public ArrayList<Student> students = new ArrayList<Student>();
+    public ArrayList<Student> students = new ArrayList<>();
     /** 2.- Change to ArrayList<Teacher>  */
-    public ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+    public ArrayList<Teacher> teachers = new ArrayList<>();
 
     //********* Enums *********/
     public enum SubjectType {

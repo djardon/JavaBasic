@@ -90,7 +90,7 @@ public class School {
         return subjectsTeachers;
     }
 
-    private ArrayList<Subject> studentSubjects(Student student) {
+    public ArrayList<Subject> subjectsOfStudent(Student student) {
         // Function returns subjects of the 'student'
         ArrayList<Subject> studentSubjects = new ArrayList<>();
 
@@ -132,7 +132,7 @@ public class School {
         for (Student student : students) {
             // Call to 'studentSubjects()' function with this 'student'
             // for get all student subjects and save get it in 'studentSubjects' list
-            ArrayList<Subject> studentSubjects = studentSubjects(student);
+            ArrayList<Subject> studentSubjects = subjectsOfStudent(student);
 
             // If 'studentSubjects' list size it's greater than 'minNumSubjects'
             if(studentSubjects.size() > minNumSubjects) {

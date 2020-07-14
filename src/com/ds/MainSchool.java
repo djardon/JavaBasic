@@ -80,5 +80,81 @@ public class MainSchool {
                 }
             }
         }
+
+
+        /*********** PRINTS ************/
+        System.out.println("*********************** School ***********************");
+
+        System.out.println("Subjects");
+        // 1.- Todas las asignaturas
+        for (Subject subject : school.subjects) {
+            System.out.println(subject.name);
+        }
+
+        System.out.println();
+        // 2.- Asignatura con más estudiantes
+        System.out.println("Subject with more students: " + school.subjectMoreStudents().name);
+
+        System.out.println();
+        // 3.- Asignatura con más profesores
+        System.out.println("Subject with more teachers: " + school.subjectMoreTeachers().name);
+
+        System.out.println();
+        // 4.- Estudiantes con más de 2 asignaturas
+        System.out.println("Students more 2 subjects:");
+        for (Student student : school.studentsNSubjects(2)) {
+            System.out.println(student.name);
+        }
+
+        System.out.println();
+        // 5.- Profesores con más de 2 asignaturas
+        System.out.println("Teachers more 2 subjects:");
+        for (Teacher teacher : school.teachersNSubjects(2)) {
+            System.out.println(teacher.name);
+        }
+
+        System.out.println();
+        // 6.- Asignaturas con más de 4 estudiantes
+        System.out.println("Subjects more 4 students:");
+        for (Subject subject : school.subjectsNStudents(4)) {
+            System.out.println(subject.name);
+        }
+
+        System.out.println();
+        // 7.- Asignaturas con más de 2 profesores
+        System.out.println("Subjects more 2 teachers:");
+        for (Subject subject : school.subjectsNTeachers(2)) {
+            System.out.println(subject.name);
+        }
+
+        System.out.println();
+        // 8.- Por cada estudiante pintar sus asignaturas
+        for (Student student : school.students) {
+            System.out.println();
+            System.out.println("Student " + student.name + " subjects:");
+            for (Subject subject : school.subjectsOfStudent(student)) {
+                System.out.println(subject.name);
+            }
+        }
+
+        System.out.println();
+        // 9.- Por cada profesor pintar sus asignaturas
+        for (Teacher teacher : school.teachers) {
+            System.out.println();
+            System.out.println("Teacher " + teacher.name + " subjects:");
+            for (Subject subject : school.subjectsOfTeacher(teacher)) {
+                System.out.println(subject.name);
+            }
+        }
+
+        System.out.println();
+        // 10.- Por cada profesor pintar sus estudiantes
+        for (Teacher teacher : school.teachers) {
+            System.out.println();
+            System.out.println("Teacher " + teacher.name + " students:");
+            for (Student student : school.studentsOfTeacher(teacher)) {
+                System.out.println(student.name);
+            }
+        }
     }
 }
