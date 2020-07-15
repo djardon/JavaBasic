@@ -57,7 +57,9 @@ public class Main {
         students.add(new Student("Roberto", "roberto@email.com"));
         students.add(new Student("Luis", "luis@email.com"));
         students.add(new Student("David", "david@email.com"));
-        subjectIOS.setStudents(students);
+        if(subjectIOS != null) {
+            subjectIOS.setStudents(students);
+        }
 
         ArrayList<Teacher> teachers = new ArrayList<>();
         teachers.add(new Teacher("David", 35, Teacher.Type.HEAD_TEACHER, Teacher.Gender.MALE));
@@ -68,18 +70,35 @@ public class Main {
         // Create a new 'Subject' class instance
         // with name "Android" and year "2020" values
         Subject subjectAndroid = new Subject("Android", 2020, Subject.SubjectType.ANDROID);
-        // Set 'studentsName' property value for the 'subjectAndroid' object
-        // new String[]{"Alicia", "Manuel", "Marc", "Javier", "Luis", "Marta"}
-        subjectAndroid.students.add(new Student("Alicia", "alicia@email.com"));
-        subjectAndroid.students.add(new Student("Manuel", "manuel@email.com"));
-        subjectAndroid.students.add(new Student("Marc", "marc@email.com"));
-        subjectAndroid.students.add(new Student("Javier", "javier@email.com"));
-        subjectAndroid.students.add(new Student("Luis", "luis@email.com"));
-        subjectAndroid.students.add(new Student("Marta", "marta@email.com"));
 
-        subjectAndroid.teachers.add(new Teacher("David", 35, Teacher.Type.HEAD_TEACHER, Teacher.Gender.MALE));
-        subjectAndroid.teachers.add(new Teacher("Carlos", 33, Teacher.Type.CO_TEACHER, Teacher.Gender.MALE));
+        if (subjectAndroid != null) {
+            if(subjectAndroid.students == null) {
+                subjectAndroid.students = new ArrayList<>();
+            }
 
+            // Set 'studentsName' property value for the 'subjectAndroid' object
+            // new String[]{"Alicia", "Manuel", "Marc", "Javier", "Luis", "Marta"}
+            subjectAndroid.students.add(new Student("Alicia", "alicia@email.com"));
+            subjectAndroid.students.add(new Student("Manuel", "manuel@email.com"));
+            subjectAndroid.students.add(new Student("Marc", "marc@email.com"));
+            subjectAndroid.students.add(new Student("Javier", "javier@email.com"));
+            subjectAndroid.students.add(new Student("Luis", "luis@email.com"));
+            subjectAndroid.students.add(new Student("Marta", "marta@email.com"));
+        }
+
+        try {
+            // IndexOutOfBoundsException -> subjectAndroid.teachers.get(10);
+            // NullPointerException -> subjectAndroid.teachers = null;
+            subjectAndroid.teachers.add(new Teacher("David", 35, Teacher.Type.HEAD_TEACHER, Teacher.Gender.MALE));
+            subjectAndroid.teachers.add(new Teacher("Carlos", 33, Teacher.Type.CO_TEACHER, Teacher.Gender.MALE));
+        } catch (NullPointerException nullEx) {
+            System.out.println("TRY-CATCH teachers NullPointerException " + nullEx.toString());
+            subjectAndroid.teachers = new ArrayList<>();
+        } catch (IndexOutOfBoundsException indexEx) {
+            System.out.println("TRY-CATCH teachers IndexOutOfBoundsException " + indexEx.toString());
+        } catch (Exception e) {
+            System.out.println("TRY-CATCH teachers " + e.toString());
+        }
 
         /*********** PRINTS ************/
         System.out.println("*********************** Student ***********************");

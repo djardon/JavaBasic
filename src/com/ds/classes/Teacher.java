@@ -1,22 +1,13 @@
 package com.ds.classes;
 
-public class Teacher {
+public class Teacher extends Person {
     //********* Properties *********/
-    public String name;
     public String email;
-    public int age;
-    public Gender gender;
     public float salary;
     /** 1.- La variable 'type' tiene que ser privada*/
     private Type type;
 
     //********* Enums *********/
-    public enum Gender {
-        MALE,
-        FEMALE,
-        OTHER
-    }
-
     public enum Type {
         HEAD_TEACHER,
         CO_TEACHER
