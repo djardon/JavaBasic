@@ -97,7 +97,6 @@ public class School {
         for (Subject subject : subjects) {
             if(isNameInList(student.name, subject.studentsNames())) {
                 studentSubjects.add(subject);
-                break;
             }
         }
 

@@ -16,7 +16,6 @@ public class Animal {
         OVIPARO
     }
 
-
     public void setType(Type type) {
         this.type = type;
     }
