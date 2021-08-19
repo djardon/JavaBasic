@@ -1,9 +1,6 @@
 package com.ds;
 
-import com.ds.classes.School;
-import com.ds.classes.Student;
-import com.ds.classes.Subject;
-import com.ds.classes.Teacher;
+import com.ds.classes.*;
 
 import java.util.Random;
 
@@ -155,6 +152,50 @@ public class MainSchool {
             for (Student student : school.studentsOfTeacher(teacher)) {
                 System.out.println(student.name);
             }
+        }
+
+        System.out.println();
+        // 11.- Por cada profesor pintar el tipo de profesor con una breve descripción
+        for (Teacher teacher : school.teachers) {
+            /*
+            if(teacher.getType() == Teacher.Type.HEAD_TEACHER) {
+                System.out.println("Head teacher");
+                System.out.println("Profesor principal");
+            } else if(teacher.getType() == Teacher.Type.CO_TEACHER) {
+                System.out.println("Co teacher");
+                System.out.println("Profesor secundario");
+            }
+            */
+
+            switch (teacher.getType()) {
+                case HEAD_TEACHER -> {
+                    System.out.println("Head teacher");
+                    System.out.println("Profesor principal");
+                }
+
+                case CO_TEACHER -> {
+                    System.out.println("Co teacher");
+                    System.out.println("Profesor secundario");
+                }
+            }
+        }
+
+        // 12.- Por cada profesor pintar el género
+        for (Teacher teacher : school.teachers) {
+            printGender(teacher.gender);
+        }
+
+        // 13.- Por cada estudiante pintar el género
+        for (Student student : school.students) {
+            printGender(student.gender);
+        }
+    }
+
+    private static void printGender(Person.Gender gender) {
+        switch (gender) {
+            case MALE -> System.out.println("Masculino");
+            case FEMALE -> System.out.println("Femenino");
+            case OTHER -> System.out.println("Otro");
         }
     }
 }

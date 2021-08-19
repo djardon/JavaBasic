@@ -13,6 +13,12 @@ public class Dog extends Animal implements Pet {
         return type;
     }
 
+    @Override
+    public void setType(Type type) {
+        super.setType(type);
+        System.out.println("Type " + this.type);
+    }
+
     /** PET interface */
     @Override
     public String speak() {

@@ -37,7 +37,11 @@ public class ForLoop {
 
         System.out.println("Print all SubjectTypes");
         for (Subject.SubjectType type : Subject.SubjectType.values()) {
-            System.out.println(type);
+            switch (type) {
+                case iOS -> System.out.println(" iOS type");
+                case ANDROID -> System.out.println(" Android type");
+                default -> System.out.println(" Otras cosas inútiles");
+            }
         }
     }
 }
